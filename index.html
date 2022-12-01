@@ -1,0 +1,47 @@
+<html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+</style>
+<title>AHS Lunch</title>
+<style>
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+#lunch {
+  color: #5a1320;
+  background: #9e9e9e;
+  margin-top:40vh;
+  text-align: center;
+}
+
+html {
+  background: #9e9e9e;
+}
+</style>
+<script>// stripped version fro docs https://api.jquery.com/jquery.getjson/
+
+const today = new Date();
+
+const day = today.getMonth()+1 + "/" + (today.getDate()+1) + "/" + today.getFullYear();
+
+var food;
+
+$.getJSON("https://ahslunch.herokuapp.com", function( data ) {
+  var food = data[day]
+  document.getElementById("lunch").innerText = food
+  console.log()
+  });
+  
+ 
+
+  
+</script>
+</head>
+
+
+<body>
+<h1 id="lunch">Loading...</h1>
+</body>
+</html>
